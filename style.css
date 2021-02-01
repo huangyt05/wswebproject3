@@ -1,0 +1,13 @@
+#mainContainer{
+    display: flexbox;
+}
+
+.playerOne{
+    width: 50vw;
+    height: 50vh;
+}
+
+.playerTwo{
+    width: 50vw;
+    height: 50vh;
+}

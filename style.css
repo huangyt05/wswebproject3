@@ -20,5 +20,23 @@ body{
     width: 50vw;
     height: 50vh;
     background-color:white;
+    text-align: center;
 }
 
+img{
+    margin: 10vh;
+    width: auto;
+    max-width: 20vw;
+    height: 30vh;
+    max-height: 30vh;
+}
+
+#imgone{
+    transform: scaleX(-1);
+}
+#imgfour{
+    transform: scaleY(-1);
+}
+#imgthree{
+    transform: scale(-1);
+}

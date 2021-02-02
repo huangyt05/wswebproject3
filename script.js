@@ -14,15 +14,13 @@ $('document').ready(function () {
     players.push('<div id="playerTwo" class="player"></div>');
 
 
-    hands.push('<div id="one" class="hands"><img id="imgone"></img></div>');
-    hands.push('<div id="two" class="hands"><img id="imgtwo"></img></div>');
-    hands.push('<div id="three" class="hands"><img id="imgthree"></img></div>');
-    hands.push('<div id="four" class="hands"><img id="imgfour"></img></div>');
-    $('#imageone').setimage('img/0_hand_0.png');
+    hands.push('<div id="one" class="hands"><img id="imgone" src="img/1_hand_0.png"></img></div>');
+    hands.push('<div id="two" class="hands"><img id="imgtwo" src="img/1_hand_0.png"></img></div>');
+    hands.push('<div id="three" class="hands"><img id="imgthree" src="img/1_hand_0.png"></img></div>');
+    hands.push('<div id="four" class="hands"><img id="imgfour" src="img/1_hand_0.png"></img></div>');
+
     let fists = [];
-    function setimage(){
-        $('#imageone').setimage();
-    }
+
     class Fist {
         constructor(player, side, id) {
             this.player = player;
@@ -37,7 +35,7 @@ $('document').ready(function () {
                 if (other.num + this.num > 10) {
                     other.num += this.num - 10;
                 }
-                else{
+                else {
                     other.num += this.num;
                 }
             }
@@ -89,12 +87,46 @@ $('document').ready(function () {
             return '#four';
         }
     }
-
-    function updateHtml() {
-        $('#one').html(fists[0].num);
-        $('#two').html(fists[1].num);
-        $('#three').html(fists[2].num);
-        $('#four').html(fists[3].num);
+    function setimage(num) {
+        if (num == 0) {
+            return 'img/0_hand_0.png';
+        }
+        if (num == 1) {
+            return 'img/1_hand_0.png';
+        }
+        if (num == 2) {
+            return 'img/2_hand_0.png';
+        }
+        if (num == 3) {
+            return 'img/3_hand_0.png';
+        }
+        if (num == 4) {
+            return 'img/4_hand_0.png';
+        }
+        if (num == 5) {
+            return 'img/5_hand_0.png';
+        }
+        if (num == 6) {
+            return 'img/6_hand_0.png';
+        }
+        if (num == 7) {
+            return 'img/7_hand_0.png';
+        }
+        if (num == 8) {
+            return 'img/8_hand_0.png';
+        }
+        if (num == 9) {
+            return 'img/9_hand_0.png';
+        }
+        if (num == 10) {
+            return 'img/0_hand_0.png';
+        }
+    }
+    function update() {
+        $('#imgone').attr('src', setimage(fists[0].num));
+        $('#imgtwo').attr('src', setimage(fists[1].num));
+        $('#imgthree').attr('src', setimage(fists[2].num));
+        $('#imgfour').attr('src', setimage(fists[3].num));
     }
 
     $('#mainContainer').append(players[0]);
@@ -149,14 +181,20 @@ $('document').ready(function () {
                 if (turn == 1) {
                     turn = 2;
                 }
-                else if (turn == 2){
+                else if (turn == 2) {
                     turn = 1;
                 }
                 phase--;
             }
         }
-        console.log(phase);
-        updateHtml();
+        if(turn == 1){
+            $('.playerTwo').css('opacity', 0.5);
+        }
+        else{
+            $('.playerOne').css('opacity', 0.5);
+        }
+        //console.log(phase);
+        update();
     });
 
 });

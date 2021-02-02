@@ -32,9 +32,11 @@ $('document').ready(function () {
 
         makeMove(other) {
             if (this.player != other.player) {
-                other.num += this.num;
-                if (this.num > 10) {
-                    this.num -= 10;
+                if (other.num + this.num > 10) {
+                    other.num += this.num - 10;
+                }
+                else{
+                    other.num += this.num;
                 }
             }
         }
@@ -114,6 +116,7 @@ $('document').ready(function () {
             }
         }
         else if (phase == 2) {
+            console.log(phase);
             if (fists[findClass(this)].player == turn) {
                 if (fists[findClass(this)].white) {
                     $(this).css('background-color', 'whitesmoke');

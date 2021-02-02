@@ -14,13 +14,15 @@ $('document').ready(function () {
     players.push('<div id="playerTwo" class="player"></div>');
 
 
-    hands.push('<div id="one" class="hands"><img></img></div>');
-    hands.push('<div id="two" class="hands"><img></img></div>');
-    hands.push('<div id="three" class="hands"><img></img></div>');
-    hands.push('<div id="four" class="hands"><img></img></div>');
-
+    hands.push('<div id="one" class="hands"><img id="imgone"></img></div>');
+    hands.push('<div id="two" class="hands"><img id="imgtwo"></img></div>');
+    hands.push('<div id="three" class="hands"><img id="imgthree"></img></div>');
+    hands.push('<div id="four" class="hands"><img id="imgfour"></img></div>');
+    $('#imageone').setimage('img/0_hand_0.png');
     let fists = [];
-
+    function setimage(){
+        $('#imageone').setimage();
+    }
     class Fist {
         constructor(player, side, id) {
             this.player = player;

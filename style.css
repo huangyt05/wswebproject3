@@ -26,7 +26,9 @@ body{
     background-color:rgb(239, 240, 224);
     text-align: center;
     font-size: 2rem;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Arial;
+    font-weight: bold;
+    color::#474747;
 }
 
 #startBox{
@@ -51,7 +53,7 @@ button{
 	border:1px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
-	color:#777777;
+	color:#474747;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;

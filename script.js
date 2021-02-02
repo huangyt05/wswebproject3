@@ -8,7 +8,21 @@ $('document').ready(function () {
     //var clickCount = 0;
     //var white = true;
     var turn = 1;
-    var phase = 1;
+    var phase = 0;
+
+    var winners = [];
+
+    var start = '<div id="startBox" class="hoverbox"><div id="start"class="content"><button id="startgame"> start game</button></div></div>';
+    var win = '<div id="winBox" class="hoverbox"><div id="win"class="content"><button id="wingame""> restart </button></div></div>';
+
+
+    $('#hoverBoxes').append(start);
+    $('#hoverBoxes').append(win);
+
+    $('#start').prepend('Finger Bumping Game');
+
+
+
 
     players.push('<div id="playerOne" class="player"></div>');
     players.push('<div id="playerTwo" class="player"></div>');
@@ -150,7 +164,6 @@ $('document').ready(function () {
             }
         }
         else if (phase == 2) {
-            console.log(phase);
             if (fists[findClass(this)].player == turn) {
                 if (fists[findClass(this)].white) {
                     $(this).css('background-color', 'whitesmoke');
@@ -185,16 +198,36 @@ $('document').ready(function () {
                     turn = 1;
                 }
                 phase--;
+                console.log(record[record.length - 1].num);
+                //console.log(fists[findClass(this)].num);
+                if (record[record.length - 1].num == 10) {
+                    winners.push(record[record.length - 1].player);
+                    $('#win').prepend('Player ' + winners[winners.length - 1] + ' Wins!');
+                    $('#winBox').css('z-index', '1');
+                    phase = 0;
+                }
             }
         }
-        if(turn == 1){
-            $('.playerTwo').css('opacity', 0.5);
-        }
-        else{
-            $('.playerOne').css('opacity', 0.5);
-        }
+        // if (turn == 1) {
+        //     $('#playerOne').css('background-color', 'rgb(186, 209, 186, 0.5)');
+        // }
+        // else if (turn == 1) {
+        //     $('#playerTwo').css('background-color', 'rgb(186, 209, 186, 0.5)');
+        // }
         //console.log(phase);
         update();
+
     });
+
+    $('button').click(function () {
+        phase = 1;
+        $('.hoverbox').css('z-index', '-1');
+        //console.log('clicked');
+        for (i = 0; i < 4; i++) {
+            fists[i].num = 1;
+        }
+        update();
+    });
+
 
 });

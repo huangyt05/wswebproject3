@@ -16,13 +16,14 @@ body{
 
 .hoverbox{
     position: absolute;
-    top:30vh;
+    top:37vh;
     left: 35vw;
     display: flex;
     flex-direction: column;
     width: 30vw;
     Height: 20vh;
-    background-color:whitesmoke;
+    border-radius: 25px;
+    background-color:rgb(239, 240, 224);
     text-align: center;
     font-size: 2rem;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -43,7 +44,30 @@ body{
 button{
     margin-top: 1rem;
     width: max-content;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
 }
+button:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
+
 
 #mainContainer{
     display: flex;
